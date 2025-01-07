@@ -16,14 +16,11 @@ async def on_ready():
 
 @client.event
 async def on_message(message):
-    print(message.content)
     if message.author == client.user:
         return
 
-    if message.content.endswith('??'):
-        print(message.content)
+    if message.content.startswith('<@968437674396483585>'):
         reply = ki.ask(message.content)
-        print(reply)
         await message.channel.send(reply)
 
 client.run(e.readToken("IRS.token"))
