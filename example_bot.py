@@ -1,8 +1,6 @@
-# This example requires the 'message_content' intent.
 from modules.extra import extra as e
-import discord
-
 from modules.ollama import ollama
+import discord
 
 ki = ollama()
 

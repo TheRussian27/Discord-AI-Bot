@@ -36,8 +36,3 @@ class ollama():
         message = choices[0]["message"]["content"]
         self.chat_history.append({"role":"assistant", "content": message})        
         return message
-
-
-# if __name__ == '__main__':
-#     api = ollama()
-#     api.__main__()
