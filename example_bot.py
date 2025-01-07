@@ -2,6 +2,7 @@ from modules.extra import extra as e
 from modules.ollama import ollama
 import discord
 
+#Ki wird angebunden
 ki = ollama()
 
 intents = discord.Intents.default()
