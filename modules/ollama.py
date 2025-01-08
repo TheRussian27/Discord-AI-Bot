@@ -14,6 +14,9 @@ class ollama():
 
     def __reset_url(self):
         self.url = "http://192.168.178.61:11434/"
+
+    def resetChatHistory(self):
+        self.chat_history = []
     
     def ask(self, q):
         self.__attachurl(f"v1/chat/completions")
