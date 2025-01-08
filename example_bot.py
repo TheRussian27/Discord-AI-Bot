@@ -19,8 +19,17 @@ async def on_message(message):
     if message.author == client.user:
         return
 
+    #Wenn der Bot gepingt wird, soll er antworten
     if message.content.startswith('<@968437674396483585>'):
-        reply = ki.ask(message.content)
+        txt = message.content                               
+        i_del = txt.index(" ") + 1                          #Variable zum bestimmen, wann @Bot endet da dieser die Pings nicht interpretieren 
+        txt = txt[i_del:]
+        reply = ki.ask(txt)
         await message.channel.send(reply)
+
+    #Wenn der "Befehl" eingegeben wird, soll der Bot resettet werden
+    if message.content.startswith(".bot reset"):
+        ki.resetChatHistory()
+        await message.channel.send("Die Bot Historie wurde zurückgesetzt")
 
 client.run(e.readToken("IRS.token"))
