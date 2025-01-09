@@ -1,7 +1,6 @@
 *.token
 modules/__psycache__
 Ideen.txt
-Bot.py
-Bot copy.py
+*_test.py
 media/images/*.*
 media/audio/*.*
