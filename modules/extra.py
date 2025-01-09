@@ -3,7 +3,10 @@ from pathlib import Path as p
 import yt_dlp
 
 class extra():
-    def readToken(token_file):
+    def __init__(self):
+        self.dpath = os.path.join(str(p(__file__).parent.parent),"media/audio")
+    
+    def readToken(self,token_file):
         path = p(__file__).resolve().parent.parent
         token = os.path.join(path,token_file)
         try:
@@ -18,14 +21,14 @@ class extra():
             exit(1)
 
     def y_link(self, link):
-        dpath = str(p(__file__).parent.parent)
-        dpath = os.path.join(dpath, "media/audio")
-        os.makedirs(dpath, exist_ok=True)
+        # self.dpath = os.path.join(self.dpath, "media/audio")
+        # os.makedirs(dpath, exist_ok=True)
 
         try:
             ydl_opts = {
                 'format': 'bestaudio/best',
-                'outtmpl': os.path.join(dpath, '%(title)s.%(ext)s'),
+                # 'outtmpl': os.path.join(dpath, '%(title)s.%(ext)s'),
+                'outtmpl': os.path.join(self.dpath, 'test.%(ext)s'),
                 'postprocessors': [{
                     'key': 'FFmpegExtractAudio',
                     'preferredcodec': 'mp3',
@@ -37,6 +40,10 @@ class extra():
             print("Download abgeschlossen!")
         except Exception as err:
             print(f"Fehler aufgetreten: {err}")
+
+    def getDPath(self):
+        print(self.dpath)
+        return self.dpath
 
 if __name__ == "__main__":
     e = extra()
